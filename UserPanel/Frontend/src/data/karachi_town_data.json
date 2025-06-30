@@ -1,0 +1,268 @@
+{
+    "Lyari Town": {
+        "subdivisions": {
+            "Baghdadi": {},
+            "Kalakot": {},
+            "Nayabad": {},
+            "Singo Lane": {},
+            "Shah Baig Line": {},
+            "Rangiwara": {},
+            "Dubai Chowk": {},
+            "Chakiwara": {},
+            "Bihar Colony": {},
+            "Daryabad": {}
+        }
+    },
+    "Korangi Town": {
+        "subdivisions": {
+            "Zaman Town": {},
+            "Nasir Colony": {},
+            "Bilal Colony": {},
+            "Mehran Town": {},
+            "Korangi No. 1": {},
+            "Korangi No. 6": {},
+            "Korangi No. 2": {},
+            "Korangi No. 3": {},
+            "Korangi No. 4": {},
+            "Korangi No. 5": {},
+            "Allah Wala Town": {}
+        }
+    },
+    "Landhi Town": {
+        "subdivisions": {
+            "Landhi 89": {},
+            "Moeenabad": {},
+            "Sherpao Colony": {},
+            "Future Colony": {},
+            "Landhi No. 1": {},
+            "Landhi No. 2": {},
+            "Landhi No. 3": {},
+            "Landhi No. 4": {},
+            "Landhi No. 5": {},
+            "Landhi No. 6": {},
+            "Bhutto Nagar": {},
+            "Dawood Chowrangi": {}
+        }
+    },
+    "Orangi Town": {
+        "subdivisions": {
+            "Pirabad": {},
+            "Ghaziabad": {},
+            "Sector 1": {},
+            "Sector 9": {},
+            "Sector 10": {},
+            "Sector 11": {},
+            "Islam Chowk": {},
+            "Madina Colony": {},
+            "Aligarh Colony": {},
+            "Sector 12": {},
+            "Sector 13": {},
+            "Sector 14": {},
+            "Sector 15": {},
+            "Sector 16": {},
+            "Sector 2": {},
+            "Sector 3": {},
+            "Sector 4": {},
+            "Sector 5": {},
+            "Sector 6": {},
+            "Sector 7": {},
+            "Sector 8": {},
+            "Sector 12-L": {}
+        }
+    },
+    "SITE Town": {
+        "subdivisions": {
+            "Metroville": {},
+            "Frontier Colony": {},
+            "Qasba Colony": {},
+            "Pak Colony": {},
+            "Haroonabad": {}
+        }
+    },
+    "Baldia Town": {
+        "subdivisions": {
+            "Saeedabad": {},
+            "Ittehad Town": {},
+            "Rasheedabad": {},
+            "Nai Abadi": {},
+            "Abidabad": {},
+            "Afridi Colony": {},
+            "Muhajir Camp": {}
+        }
+    },
+    "Keamari Town": {
+        "subdivisions": {
+            "Hindu Para": {},
+            "Mansan Chowk": {},
+            "Machhar Colony": {},
+            "Jackson Market": {},
+            "Keamari No. 1": {},
+            "Bhutta Village": {}
+        }
+    },
+    "Shah Faisal Town": {
+        "subdivisions": {
+            "Shah Faisal Colony No 5": {},
+            "Natha Khan Goth": {},
+            "Shah Faisal Colony 1": {},
+            "Shah Faisal Colony 2": {},
+            "Shah Faisal Colony 3": {},
+            "Shah Faisal Colony 4": {},
+            "Green Town": {}
+        }
+    },
+    "Jamshed Town": {
+        "subdivisions": {
+            "Baloch Colony": {},
+            "Tariq Road": {},
+            "Nursery": {},
+            "Soldier Bazaar": {},
+            "PECHS": {},
+            "Guru Mandir": {},
+            "SMCHS": {},
+            "PECHS Block 2": {}
+        }
+    },
+    "Gadap Town": {
+        "subdivisions": {
+            "Taiser Town": {},
+            "Ahsanabad": {},
+            "Manghopir": {},
+            "Surjani Town": {},
+            "Gulshan-e-Maymar": {}
+        }
+    },
+    "Malir Town": {
+        "subdivisions": {
+            "Malir Halt": {},
+            "Saudabad": {},
+            "Model Colony": {},
+            "Jafar Tayyar Society": {},
+            "Kala Board": {},
+            "Khokhrapar": {}
+        }
+    },
+    "Bin Qasim Town": {
+        "subdivisions": {
+            "Ibrahim Hyderi": {},
+            "Gulshan-e-Hadeed": {}
+        }
+    },
+    "New Karachi Town": {
+        "subdivisions": {
+            "Sector 5-A": {},
+            "Sector 5-E": {},
+            "Sector 5-B": {},
+            "Sector 5-C": {},
+            "Sector 5-D": {},
+            "Godhra Camp": {},
+            "Khamiso Goth": {}
+        }
+    },
+    "Gulberg Town": {
+        "subdivisions": {
+            "Ancholi": {},
+            "Water Pump": {},
+            "Federal B Area Block 7": {},
+            "Federal B Area Block 8": {},
+            "Federal B Area Block 9": {},
+            "Federal B Area Block 10": {},
+            "Federal B Area Block 11": {},
+            "Federal B Area Block 12": {},
+            "Federal B Area Block 13": {},
+            "Federal B Area Block 14": {},
+            "Federal B Area Block 15": {},
+            "Federal B Area Block 16": {},
+            "Federal B Area Block 17": {},
+            "Federal B Area Block 18": {},
+            "Federal B Area Block 19": {},
+            "Federal B Area Block 20": {},
+            "Federal B Area Block 21": {},
+            "Federal B Area Block 22": {},
+            "Federal B Area Block 1": {},
+            "Federal B Area Block 2": {},
+            "Federal B Area Block 3": {},
+            "Federal B Area Block 4": {},
+            "Federal B Area Block 5": {},
+            "Federal B Area Block 6": {}
+        }
+    },
+    "Gulshan-e-Iqbal Town": {
+        "subdivisions": {
+            "Gulshan-e-Iqbal Block 13D": {},
+            "Gulshan-e-Iqbal Block 13E": {},
+            "Gulshan-e-Iqbal Block 13F": {},
+            "Shanti Nagar": {},
+            "Gulshan-e-Iqbal Block 1": {},
+            "Gulshan-e-Iqbal Block 2": {},
+            "Gulshan-e-Iqbal Block 3": {},
+            "Gulshan-e-Iqbal Block 4": {},
+            "Gulshan-e-Iqbal Block 5": {},
+            "Gulshan-e-Iqbal Block 6": {},
+            "Gulshan-e-Iqbal Block 7": {},
+            "Gulshan-e-Iqbal Block 8": {},
+            "Gulshan-e-Iqbal Block 9": {},
+            "Gulshan-e-Iqbal Block 10": {},
+            "Gulshan-e-Iqbal Block 11": {},
+            "Gulshan-e-Iqbal Block 12": {},
+            "Gulshan-e-Iqbal Block 13": {},
+            "Gulshan-e-Iqbal Block 14": {},
+            "Gulshan-e-Iqbal Block 15": {},
+            "Gulshan-e-Iqbal Block 16": {},
+            "Gulshan-e-Iqbal Block 17": {},
+            "Gulshan-e-Iqbal Block 18": {},
+            "Gulshan-e-Iqbal Block 19": {}
+        }
+    },
+    "North Nazimabad Town": {
+        "subdivisions": {
+            "Block H": {},
+            "Block I": {},
+            "Hyderi": {},
+            "Block J": {},
+            "Block K": {},
+            "Block L": {},
+            "Block A": {},
+            "Block B": {},
+            "Block C": {},
+            "Block D": {},
+            "Block E": {},
+            "Block F": {},
+            "Block G": {},
+            "Buffer Zone": {},
+            "KDA Chowrangi": {},
+            "Shadman Town": {}
+        }
+    },
+    "Liaquatabad Town": {
+        "subdivisions": {
+            "Dak-khana": {},
+            "Sharifabad": {},
+            "Firdous Colony": {},
+            "Qasimabad": {},
+            "Bandhani Colony": {},
+            "Al-Karam Square": {},
+            "Gharibabad": {}
+        }
+    },
+    "Saddar Town": {
+        "subdivisions": {
+            "Burns Road": {},
+            "Empress Market": {},
+            "I.I Chundrigar": {},
+            "Regal Chowk": {},
+            "Clifton Block 2": {},
+            "Civil Lines": {},
+            "Cantt Station": {},
+            "Saddar": {},
+            "Clifton Block 1": {},
+            "Clifton Block 3": {},
+            "Clifton Block 4": {},
+            "Clifton Block 5": {},
+            "Clifton Block 6": {},
+            "Clifton Block 7": {},
+            "Clifton Block 8": {},
+            "Clifton Block 9": {}
+        }
+    }
+}

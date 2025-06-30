@@ -1,0 +1,73 @@
+/* DARK MODE SUPPORT */
+html.dark {
+  --sidebar-bg: #2D235A;          /* Deep violet background */
+  --sidebar-text: #e4e6eb;        /* Light text for readability */
+  --sidebar-hover: #3A2E75;       /* Softer violet on hover */
+  --nav-active: #7C4DFF;          /* Bright violet for active link */
+  --user-bg: #3F2A7E;             /* Avatar bg for dark mode */
+  --section-title: #d1cfff;       /* Light purple for headings */
+}
+
+/* Sidebar Container */
+html.dark .sidebar {
+  background-color: var(--sidebar-bg);
+  color: white;
+}
+
+/* Active link highlight */
+html.dark .nav-item.active {
+  background-color: var(--nav-active);
+  color: #ffffff;
+  border-radius: 8px;
+}
+
+/* Hover effect */
+html.dark .nav-item:hover {
+  background-color: var(--sidebar-hover);
+  color: #ffffff;
+  border-radius: 8px;
+}
+
+/* User Avatar */
+html.dark .user-avatar {
+  background-color: var(--user-bg);
+  color: #fff;
+}
+
+/* User Role Text */
+html.dark .user-role {
+  color: #ccc;
+}
+
+/* Section Titles (optional for labels) */
+html.dark .section-title {
+  color: white;
+}
+
+/* Toggle Button Icon */
+.dark-mode-toggle {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: white;
+  font-size: 1.1rem;
+}
+
+/* Ensure all nav text in dark mode is white */
+html.dark .nav-item,
+html.dark .nav-link,
+html.dark .nav-label {
+  color: white !important;
+}
+
+/* Also apply white color to discussion + resource items */
+html.dark .resource-item,
+html.dark .discussion-categories .nav-item {
+  color: white !important;
+}
+
+html.dark .dark-mode-toggle{
+    color: white !important;
+}
+
+

@@ -1,0 +1,259 @@
+.incidents-page .incidents-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-box i {
+  position: absolute;
+  left: 10px;
+  color: var(--light);
+  opacity: 0.7;
+}
+
+.search-box input {
+  padding: 8px 15px 8px 35px;
+  border-radius: 20px;
+  border: none;
+  background-color: #1e293b;
+  color: white;
+  width: 250px;
+  transition: width 0.3s ease;
+}
+
+.search-box input:focus {
+  outline: none;
+  width: 300px;
+}
+
+.incident-filters {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.filter-group label {
+  font-size: 0.9rem;
+  color: var(--light);
+}
+
+.filter-group select {
+  padding: 8px 12px;
+  border-radius: 5px;
+  border: 1px solid #2d3436;
+  background-color: #1e293b;
+  color: white;
+  min-width: 150px;
+}
+
+.severity-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.severity-badge.low {
+  background-color: rgba(0, 184, 148, 0.2);
+  color: var(--success);
+}
+
+.severity-badge.medium {
+  background-color: rgba(253, 203, 110, 0.2);
+  color: var(--warning);
+}
+
+.severity-badge.high {
+  background-color: rgba(255, 165, 0, 0.2);
+  color: orange;
+}
+
+.severity-badge.critical {
+  background-color: rgba(214, 48, 49, 0.2);
+  color: var(--danger);
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.status-badge.pending {
+  background-color: rgba(253, 203, 110, 0.2);
+  color: var(--warning);
+}
+
+.status-badge.under-review {
+  background-color: rgba(108, 92, 231, 0.2);
+  color: var(--primary);
+}
+
+.status-badge.approved {
+  background-color: rgba(0, 184, 148, 0.2);
+  color: var(--success);
+}
+
+.status-badge.rejected {
+  background-color: rgba(214, 48, 49, 0.2);
+  color: var(--danger);
+}
+
+.table-actions .approve {
+  color: var(--success);
+}
+
+.table-actions .reject {
+  color: var(--danger);
+}
+
+.incident-details {
+  padding: 10px;
+}
+
+.incident-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #2d3436;
+}
+
+.incident-header h3 {
+  margin: 0;
+  color: white;
+}
+
+.incident-meta {
+  display: flex;
+  gap: 10px;
+}
+
+.incident-meta .severity,
+.incident-meta .status {
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.incident-meta .severity.low {
+  background-color: rgba(0, 184, 148, 0.2);
+  color: var(--success);
+}
+
+.incident-meta .severity.medium {
+  background-color: rgba(253, 203, 110, 0.2);
+  color: var(--warning);
+}
+
+.incident-meta .severity.high {
+  background-color: rgba(255, 165, 0, 0.2);
+  color: orange;
+}
+
+.incident-meta .severity.critical {
+  background-color: rgba(214, 48, 49, 0.2);
+  color: var(--danger);
+}
+
+.incident-meta .status.pending {
+  background-color: rgba(253, 203, 110, 0.2);
+  color: var(--warning);
+}
+
+.incident-meta .status.under-review {
+  background-color: rgba(108, 92, 231, 0.2);
+  color: var(--primary);
+}
+
+.incident-meta .status.approved {
+  background-color: rgba(0, 184, 148, 0.2);
+  color: var(--success);
+}
+
+.incident-meta .status.rejected {
+  background-color: rgba(214, 48, 49, 0.2);
+  color: var(--danger);
+}
+
+.incident-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.info-item {
+  background-color: #1e293b;
+  padding: 12px;
+  border-radius: 5px;
+}
+
+.info-item label {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--light);
+  opacity: 0.7;
+  margin-bottom: 5px;
+}
+
+.info-item span {
+  font-size: 0.9rem;
+  color: white;
+}
+
+.incident-description {
+  margin-bottom: 20px;
+}
+
+.incident-description label {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--light);
+  margin-bottom: 10px;
+}
+
+.incident-description p {
+  background-color: #1e293b;
+  padding: 15px;
+  border-radius: 5px;
+  line-height: 1.6;
+}
+
+.incident-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+  .incidents-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .search-box input {
+    width: 100%;
+  }}

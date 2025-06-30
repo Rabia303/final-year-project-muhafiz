@@ -1,0 +1,141 @@
+.areas-page .areas-tabs {
+  display: flex;
+  border-bottom: 1px solid #2d3436;
+  margin-bottom: 20px;
+}
+
+.areas-page .tab {
+  padding: 10px 20px;
+  cursor: pointer;
+  color: var(--light);
+  opacity: 0.7;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.areas-page .tab:hover {
+  opacity: 1;
+}
+
+.areas-page .tab.active {
+  opacity: 1;
+  color: var(--secondary);
+  border-bottom: 2px solid var(--secondary);
+}
+
+.areas-page .areas-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.search-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-box i {
+  position: absolute;
+  left: 10px;
+  color: var(--light);
+  opacity: 0.7;
+}
+
+.search-box input {
+  padding: 8px 15px 8px 35px;
+  border-radius: 20px;
+  border: none;
+  background-color: #1e293b;
+  color: white;
+  width: 250px;
+  transition: width 0.3s ease;
+}
+
+.search-box input:focus {
+  outline: none;
+  width: 300px;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.status-badge.active {
+  background-color: rgba(0, 184, 148, 0.2);
+  color: var(--success);
+}
+
+.status-badge.inactive {
+  background-color: rgba(214, 48, 49, 0.2);
+  color: var(--danger);
+}
+
+.severity-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.severity-badge.low {
+  background-color: rgba(0, 184, 148, 0.2);
+  color: var(--success);
+}
+
+.severity-badge.medium {
+  background-color: rgba(253, 203, 110, 0.2);
+  color: var(--warning);
+}
+
+.severity-badge.high {
+  background-color: rgba(214, 48, 49, 0.2);
+  color: var(--danger);
+}
+
+.area-form {
+  padding: 10px;
+}
+
+.form-row {
+  display: flex;
+  gap: 15px;
+}
+
+.form-row .form-group {
+  flex: 1;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+  .areas-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  
+  .search-box input {
+    width: 100%;
+  }
+  
+  .search-box input:focus {
+    width: 100%;
+  }
+  
+  .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+}

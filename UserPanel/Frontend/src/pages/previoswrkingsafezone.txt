@@ -1,0 +1,556 @@
+
+// import React, { useState, useEffect } from 'react';
+// import axios from 'axios';
+// import {
+//   MapContainer, TileLayer, Marker, Popup, useMapEvents, CircleMarker, Polyline
+// } from 'react-leaflet';
+// import L from 'leaflet';
+// import 'leaflet/dist/leaflet.css';
+// import '../SafeRouteMap.css';
+// import { FaRoute, FaMapMarkerAlt, FaWalking, FaCar, FaBalanceScale, FaRedo, FaInfoCircle } from 'react-icons/fa';
+
+// const zoneColors = {
+//   RED: '#ff4d4d',
+//   ORANGE: '#ffa64d',
+//   YELLOW: '#ffff66',
+//   GREEN: '#66ff66',
+// };
+
+// const routeTypeIcons = {
+//   safest: <FaWalking className="route-icon" />,
+//   fastest: <FaCar className="route-icon" />,
+//   balanced: <FaBalanceScale className="route-icon" />
+// };
+
+// const routeTypeColors = {
+//   safest: '#3b82f6',
+//   fastest: '#10b981',
+//   balanced: '#f59e0b'
+// };
+
+// const SafeRouteMap = () => {
+//   const [start, setStart] = useState(null);
+//   const [end, setEnd] = useState(null);
+//   const [zones, setZones] = useState([]);
+//   const [clickMode, setClickMode] = useState("none");
+//   const [loading, setLoading] = useState(false);
+//   const [startInput, setStartInput] = useState("");
+//   const [endInput, setEndInput] = useState("");
+//   const [error, setError] = useState(null);
+//   const [allRoutes, setAllRoutes] = useState(null);
+//   const [selectedType, setSelectedType] = useState("safest");
+//   const [routeDetailsExpanded, setRouteDetailsExpanded] = useState(false);
+
+//   const getSafeRoute = async () => {
+//     if (!start || !end) {
+//       setError("Please select both start and end points");
+//       return;
+//     }
+
+//     try {
+//       setLoading(true);
+//       setError(null);
+//       setAllRoutes(null);
+
+//       const res = await axios.post("http://localhost:5000/api/safe-route", { start, end });
+
+//       if (res.data.success) {
+//         setAllRoutes(res.data);
+//         setSelectedType("safest");
+//       } else {
+//         setError(res.data.error || "Failed to calculate route");
+//       }
+//     } catch (err) {
+//       console.error("Route fetch error:", err);
+//       setError("Route calculation failed. Please try different locations.");
+//     } finally {
+//       setLoading(false);
+//     }
+//   };
+
+//   useEffect(() => {
+//     const fetchZones = async () => {
+//       try {
+//         const res = await axios.get("http://localhost:5000/api/zones");
+//         setZones(res.data.zones);
+//       } catch (err) {
+//         console.error("Zone fetch failed", err);
+//         setError("Failed to load crime zone data");
+//       }
+//     };
+
+//     fetchZones();
+//   }, []);
+
+//   const LocationClick = () => {
+//     useMapEvents({
+//       click(e) {
+//         const { lat, lng } = e.latlng;
+//         if (clickMode === "start") {
+//           setStart({ lat, lng });
+//           setClickMode("none");
+//         } else if (clickMode === "end") {
+//           setEnd({ lat, lng });
+//           setClickMode("none");
+//         }
+//       },
+//     });
+//     return null;
+//   };
+
+//   const handleGeocode = async (place, type) => {
+//     if (!place) return;
+
+//     try {
+//       const res = await axios.get(
+//         `https://nominatim.openstreetmap.org/search?format=json&q=${place}&countrycodes=PK&limit=1`
+//       );
+
+//       if (res.data && res.data.length > 0) {
+//         const { lat, lon } = res.data[0];
+//         const coords = { lat: parseFloat(lat), lng: parseFloat(lon) };
+
+//         if (type === "start") {
+//           setStart(coords);
+//           setStartInput("");
+//         } else {
+//           setEnd(coords);
+//           setEndInput("");
+//         }
+//       } else {
+//         setError("Location not found in Karachi. Please try a different name.");
+//       }
+//     } catch (err) {
+//       console.error("Geocoding error:", err);
+//       setError("Geocoding service unavailable. Please use map selection.");
+//     }
+//   };
+
+//   const AnimatedPolyline = ({ positions, color }) => (
+//     <Polyline
+//       positions={positions}
+//       pathOptions={{
+//         color,
+//         weight: 6,
+//         dashArray: '20, 20',
+//         className: 'animated-dash'
+//       }}
+//     />
+//   );
+
+//   const getSafetyLevel = (score) => {
+//     if (score >= 90) return { label: "Very Safe", color: "#10b981" };
+//     if (score >= 70) return { label: "Safe", color: "#22c55e" };
+//     if (score >= 50) return { label: "Moderate", color: "#f59e0b" };
+//     if (score >= 30) return { label: "Risky", color: "#ef4444" };
+//     return { label: "Dangerous", color: "#b91c1c" };
+//   };
+
+//   const renderZoneSummary = (zoneSummary) => {
+//     const total = Object.values(zoneSummary).reduce((sum, val) => sum + val, 0);
+
+//     return (
+//       <div className="zone-summary-grid">
+//         {Object.entries(zoneSummary).map(([zone, count]) => (
+//           <div key={zone} className="zone-summary-item">
+//             <div className="zone-label" style={{ backgroundColor: zoneColors[zone] }}>
+//               {zone}
+//             </div>
+//             <div className="zone-count">{count}</div>
+//             <div className="zone-percentage">
+//               {total > 0 ? Math.round((count / total) * 100) : 0}%
+//             </div>
+//             <div className="zone-bar-container">
+//               <div
+//                 className="zone-bar"
+//                 style={{
+//                   width: `${total > 0 ? (count / total) * 100 : 0}%`,
+//                   backgroundColor: zoneColors[zone]
+//                 }}
+//               ></div>
+//             </div>
+//           </div>
+//         ))}
+//       </div>
+//     );
+//   };
+
+//   const resetRoute = () => {
+//     setAllRoutes(null);
+//     setSelectedType("safest");
+//     setStart(null);
+//     setEnd(null);
+//     setStartInput("");
+//     setEndInput("");
+//     setError(null);
+//   };
+
+//   return (
+//     <div className="safe-route-container">
+//       <style>{`
+//   @keyframes dash { to { stroke-dashoffset: -40; } }
+//   .animated-dash { animation: dash 1s linear infinite; }
+// `}</style>
+
+
+//       <header className="app-header">
+//         <div className="header-content">
+//           <h1 className="app-title">Safest Route Finder</h1>
+//           <p className="app-subtitle">Navigate Karachi safely with crime-aware routing</p>
+//           <div className="app-actions">
+//             <button
+//               className="reset-button"
+//               onClick={resetRoute}
+//               title="Reset route"
+//             >
+//               <FaRedo /> Reset
+//             </button>
+//           </div>
+//         </div>
+//       </header>
+
+//       {/* Controls Section */}
+//       <div className="controls-card">
+//         <div className="input-row">
+//           <div className="input-group">
+//             <label className="input-label">
+//               <FaMapMarkerAlt className="input-icon" /> Start Point
+//             </label>
+//             <div className="input-wrapper">
+//               <input
+//                 type="text"
+//                 placeholder="Enter area name or click map"
+//                 value={startInput}
+//                 onChange={(e) => setStartInput(e.target.value)}
+//                 onKeyDown={(e) => e.key === "Enter" && handleGeocode(e.target.value, "start")}
+//               />
+//               <button
+//                 onClick={() => setClickMode("start")}
+//                 className={`map-button ${clickMode === "start" ? 'active' : ''}`}
+//               >
+//                 <FaMapMarkerAlt /> Map
+//               </button>
+//             </div>
+//             {start && (
+//               <div className="coordinates-display">
+//                 {start.lat.toFixed(5)}, {start.lng.toFixed(5)}
+//               </div>
+//             )}
+//           </div>
+
+//           <div className="input-group">
+//             <label className="input-label">
+//               <FaMapMarkerAlt className="input-icon" /> End Point
+//             </label>
+//             <div className="input-wrapper">
+//               <input
+//                 type="text"
+//                 placeholder="Enter area name or click map"
+//                 value={endInput}
+//                 onChange={(e) => setEndInput(e.target.value)}
+//                 onKeyDown={(e) => e.key === "Enter" && handleGeocode(e.target.value, "end")}
+//               />
+//               <button
+//                 onClick={() => setClickMode("end")}
+//                 className={`map-button ${clickMode === "end" ? 'active' : ''}`}
+//               >
+//                 <FaMapMarkerAlt /> Map
+//               </button>
+//             </div>
+//             {end && (
+//               <div className="coordinates-display">
+//                 {end.lat.toFixed(5)}, {end.lng.toFixed(5)}
+//               </div>
+//             )}
+//           </div>
+//         </div>
+
+//         <div className="action-button-container">
+//           <button
+//             onClick={getSafeRoute}
+//             disabled={loading || !start || !end}
+//             className="route-button"
+//           >
+//             {loading ? (
+//               <>
+//                 <div className="spinner"></div>
+//                 Calculating Routes...
+//               </>
+//             ) : (
+//               <>
+//                 <FaRoute className="route-icon" />
+//                 Find Safe Routes
+//               </>
+//             )}
+//           </button>
+//         </div>
+
+//         {error && (
+//           <div className="error-message">
+//             <FaInfoCircle className="error-icon" />
+//             {error}
+//           </div>
+//         )}
+//       </div>
+
+//       {/* Route Selection Cards */}
+//       {allRoutes && (
+//         <div className="route-cards-container">
+//           {['safest', 'fastest', 'balanced'].map((type) => {
+//             const route = allRoutes[type];
+//             const safetyInfo = getSafetyLevel(route.safety_score);
+
+//             return (
+//               <div
+//                 key={type}
+//                 className={`route-card ${selectedType === type ? "selected" : ""}`}
+//                 onClick={() => setSelectedType(type)}
+//                 style={{ borderColor: routeTypeColors[type] }}
+//               >
+//                 <div className="route-card-header">
+//                   <div className="route-type-icon" style={{ color: routeTypeColors[type] }}>
+//                     {routeTypeIcons[type]}
+//                   </div>
+//                   <div className="route-card-title">
+//                     <h4>{type.charAt(0).toUpperCase() + type.slice(1)} Route</h4>
+//                     <div className="route-card-subtitle">
+//                       {route.distance_km} km • {route.waypoints} points
+//                     </div>
+//                   </div>
+//                 </div>
+
+//                 <div className="safety-indicator">
+//                   <div className="safety-label" style={{ backgroundColor: safetyInfo.color }}>
+//                     {safetyInfo.label}
+//                   </div>
+//                   <div className="safety-score">
+//                     Safety: {route.safety_score}%
+//                   </div>
+//                 </div>
+
+//                 <div className="route-stats">
+//                   <div className="route-stat">
+//                     <div className="stat-label">Red Zones</div>
+//                     <div className="stat-value">{route.zone_summary.RED || 0}</div>
+//                   </div>
+//                   <div className="route-stat">
+//                     <div className="stat-label">Bypassed</div>
+//                     <div className="stat-value">{route.red_zones_bypassed}</div>
+//                   </div>
+//                   <div className="route-stat">
+//                     <div className="stat-label">Time</div>
+//                     <div className="stat-value">~{Math.round(route.distance_km * 3)} min</div>
+//                   </div>
+//                 </div>
+//               </div>
+//             );
+//           })}
+//         </div>
+//       )}
+
+//       {/* Map and Summary Section */}
+//       <div className="content-container">
+//         <div className="map-section">
+//           <div className="map-card">
+//             <MapContainer
+//               center={start || [24.88, 67.03]}
+//               zoom={start ? 14 : 12}
+//               className="map-container"
+//             >
+//               <TileLayer
+//                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+//                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+//               />
+//               <LocationClick />
+
+//               {zones.map((z, i) => (
+//                 <CircleMarker
+//                   key={i}
+//                   center={[z.lat, z.lng]}
+//                   radius={z.zone === "RED" ? 8 : 6}
+//                   pathOptions={{
+//                     color: zoneColors[z.zone] || "gray",
+//                     fillOpacity: 0.8,
+//                     weight: z.zone === "RED" ? 2 : 1
+//                   }}
+//                 >
+//                   <Popup>
+//                     <b>{z.subdivision}</b><br />
+//                     <span className={`zone-tag zone-${z.zone.toLowerCase()}`}>
+//                       {z.zone} zone
+//                     </span><br />
+//                     Source: {z.source}
+//                   </Popup>
+//                 </CircleMarker>
+//               ))}
+
+//               {start && (
+//                 <Marker
+//                   position={[start.lat, start.lng]}
+//                   icon={L.divIcon({
+//                     html: '<div class="start-marker"><div class="marker-pulse"></div></div>',
+//                     className: '',
+//                     iconSize: [32, 32]
+//                   })}
+//                 >
+//                   <Popup>Start Point</Popup>
+//                 </Marker>
+//               )}
+
+//               {end && (
+//                 <Marker
+//                   position={[end.lat, end.lng]}
+//                   icon={L.divIcon({
+//                     html: '<div class="end-marker"><div class="marker-pulse"></div></div>',
+//                     className: '',
+//                     iconSize: [32, 32]
+//                   })}
+//                 >
+//                   <Popup>End Point</Popup>
+//                 </Marker>
+//               )}
+
+//               {allRoutes && allRoutes[selectedType]?.route && (
+//                 <AnimatedPolyline
+//                   positions={allRoutes[selectedType].route}
+//                   color={routeTypeColors[selectedType]}
+//                 />
+//               )}
+//             </MapContainer>
+//           </div>
+//         </div>
+
+//         {/* Summary Panel */}
+//         <div className="summary-section">
+//           {allRoutes ? (
+//             <div className="summary-card">
+//               <div className="summary-header">
+//                 <h3>{selectedType.toUpperCase()} Route Details</h3>
+//                 <button
+//                   className="expand-button"
+//                   onClick={() => setRouteDetailsExpanded(!routeDetailsExpanded)}
+//                 >
+//                   {routeDetailsExpanded ? "Show Less" : "Show More"}
+//                 </button>
+//               </div>
+
+//               <div className="route-highlights">
+//                 <div className="highlight-card">
+//                   <div className="highlight-value">{allRoutes[selectedType].distance_km} km</div>
+//                   <div className="highlight-label">Distance</div>
+//                 </div>
+
+//                 <div className="highlight-card">
+//                   <div className="highlight-value" style={{ color: getSafetyLevel(allRoutes[selectedType].safety_score).color }}>
+//                     {allRoutes[selectedType].safety_score}%
+//                   </div>
+//                   <div className="highlight-label">Safety Score</div>
+//                 </div>
+
+//                 <div className="highlight-card">
+//                   <div className="highlight-value">{allRoutes[selectedType].red_zones_bypassed}</div>
+//                   <div className="highlight-label">Red Zones Avoided</div>
+//                 </div>
+//               </div>
+
+//               <div className="section-title">Zone Breakdown</div>
+//               {renderZoneSummary(allRoutes[selectedType].zone_summary)}
+
+//               {routeDetailsExpanded && (
+//                 <>
+//                   <div className="section-title">Route Features</div>
+//                   <div className="route-features">
+//                     <div className="feature">
+//                       <div className="feature-icon">💡</div>
+//                       <div className="feature-text">
+//                         <b>Lighting:</b> {allRoutes[selectedType].extra.light_status}
+//                       </div>
+//                     </div>
+//                     <div className="feature">
+//                       <div className="feature-icon">👥</div>
+//                       <div className="feature-text">
+//                         <b>Foot Traffic:</b> {allRoutes[selectedType].extra.crowd_status}
+//                       </div>
+//                     </div>
+//                     <div className="feature">
+//                       <div className="feature-icon">📹</div>
+//                       <div className="feature-text">
+//                         <b>Surveillance:</b> {allRoutes[selectedType].extra.surveillance ? "Available" : "Limited"}
+//                       </div>
+//                     </div>
+//                     <div className="feature">
+//                       <div className="feature-icon">🛡️</div>
+//                       <div className="feature-text">
+//                         <b>Safe Havens:</b> {allRoutes[selectedType].extra.safe_havens} police stations along route
+//                       </div>
+//                     </div>
+//                   </div>
+
+//                   <div className="section-title">Safety Tips</div>
+//                   <ul className="safety-tips">
+//                     <li>Travel during daylight hours when possible</li>
+//                     <li>Stay in well-lit areas with other people around</li>
+//                     <li>Keep valuables out of sight</li>
+//                     <li>Share your route with someone you trust</li>
+//                   </ul>
+//                 </>
+//               )}
+//             </div>
+//           ) : (
+//             <div className="summary-card placeholder">
+//               <div className="placeholder-icon">
+//                 <FaRoute />
+//               </div>
+//               <h3>No Route Selected</h3>
+//               <p>Select start and end points, then click "Find Safe Routes" to calculate your safest path</p>
+//               <div className="info-tip">
+//                 <FaInfoCircle /> Tip: You can click the map or search for locations
+//               </div>
+//             </div>
+//           )}
+//         </div>
+//       </div>
+
+//       {/* Legend */}
+//       <div className="legend-container">
+//         <div className="legend-card">
+//           <h4>Map Legend</h4>
+//           <div className="legend-items">
+//             <div className="legend-item">
+//               <div className="legend-icon start"></div>
+//               <div className="legend-text">Start Point</div>
+//             </div>
+//             <div className="legend-item">
+//               <div className="legend-icon end"></div>
+//               <div className="legend-text">End Point</div>
+//             </div>
+//             {allRoutes && (
+//               <div className="legend-item">
+//                 <div className="legend-icon" style={{ backgroundColor: routeTypeColors[selectedType] }}></div>
+//                 <div className="legend-text">Selected Route</div>
+//               </div>
+//             )}
+//             <div className="legend-item">
+//               <div className="legend-icon" style={{ backgroundColor: zoneColors.RED }}></div>
+//               <div className="legend-text">High Risk (Red)</div>
+//             </div>
+//             <div className="legend-item">
+//               <div className="legend-icon" style={{ backgroundColor: zoneColors.ORANGE }}></div>
+//               <div className="legend-text">Moderate Risk (Orange)</div>
+//             </div>
+//             <div className="legend-item">
+//               <div className="legend-icon" style={{ backgroundColor: zoneColors.YELLOW }}></div>
+//               <div className="legend-text">Low Risk (Yellow)</div>
+//             </div>
+//             <div className="legend-item">
+//               <div className="legend-icon" style={{ backgroundColor: zoneColors.GREEN }}></div>
+//               <div className="legend-text">Safe (Green)</div>
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default SafeRouteMap;

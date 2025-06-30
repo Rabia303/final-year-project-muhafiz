@@ -1,0 +1,258 @@
+:root {
+  --primary: #6c5ce7;
+  --primary-dark: #5649c0;
+  --secondary: #00cec9;
+  --dark: #2d3436;
+  --dark-light: #636e72;
+  --light: #dfe6e9;
+  --danger: #d63031;
+  --warning: #fdcb6e;
+  --success: #00b894;
+  --sidebar-width: 250px;
+  --sidebar-collapsed-width: 80px;
+  --header-height: 70px;
+}
+.app-container {
+  display: flex;
+  min-height: 100vh;
+  background-color: #1a1a2e;
+}
+
+.main-content {
+  flex: 1;
+  transition: margin-left 0.3s ease;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content.sidebar-open {
+  margin-left: 250px; /* Matches sidebar width */
+}
+
+.main-content.sidebar-collapsed {
+  margin-left: 80px; /* Matches collapsed sidebar width */
+}
+
+.content-wrapper {
+  flex: 1;
+  padding: 20px;
+  margin-top: 70px; /* Matches header height */
+  overflow-y: auto;
+}
+
+/* Ensure sidebar stays fixed */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  z-index: 100;
+}
+
+/* Make sure header stays on top */
+.header {
+  position: fixed;
+  top: 0;
+  z-index: 99;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .main-content.sidebar-open, 
+  .main-content.sidebar-collapsed {
+    margin-left: 0;
+  }
+  
+  .sidebar.open {
+    width: 100%;
+    z-index: 1000;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #1a1a2e;
+  color: #e6e6e6;
+}
+
+.app-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  transition: margin-left 0.3s ease;
+}
+
+.content-wrapper {
+  padding: 20px;
+  margin-top: var(--header-height);
+  overflow-y: auto;
+  height: calc(100vh - var(--header-height));
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #2d3436;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #6c5ce7;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #5649c0;
+}
+
+/* Card styling */
+.card {
+  background: #16213e;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #2d3436;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--light);
+}
+
+/* Button styling */
+.btn {
+  padding: 8px 16px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-dark);
+}
+
+.btn-danger {
+  background-color: var(--danger);
+  color: white;
+}
+
+.btn-danger:hover {
+  background-color: #c0392b;
+}
+
+.btn-sm {
+  padding: 5px 10px;
+  font-size: 0.8rem;
+}
+
+/* Form elements */
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #2d3436;
+  background-color: #1e293b;
+  color: white;
+  transition: border 0.3s ease;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+/* Table styling */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+.table th {
+  background-color: #16213e;
+  padding: 12px;
+  text-align: left;
+  font-weight: 600;
+  color: var(--secondary);
+}
+
+.table td {
+  padding: 12px;
+  border-bottom: 1px solid #2d3436;
+}
+
+.table tr:hover {
+  background-color: #1e293b;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .content-wrapper {
+    padding: 15px;
+  }
+  
+  .card {
+    padding: 15px;
+  }
+}
+
+:root {
+  --text-primary: #fef7f7;
+  --text-secondary: #fdecec;
+  --card-bg: #0F3460;
+  --accent-color: #3498db;
+  --accent-bg: #ecf6fe;
+  --accent-text: #0066cc;
+  --border-color: #ccc;
+}
+
+[data-theme='dark'] {
+  --text-primary: #f0f0f0;
+  --text-secondary: #ccc;
+  --card-bg: #1e1e1e;
+  --accent-color: #4aa3ff;
+  --accent-bg: #2a2a2a;
+  --accent-text: #4aa3ff;
+  --border-color: #333;
+}

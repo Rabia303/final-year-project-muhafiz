@@ -1,0 +1,296 @@
+:root {
+  --bg-color: #ffffff;
+  --text-color: #1a1a1a;
+  --card-bg: #f7f7f7;
+  --danger: #ff7675;
+  --border: #e0e0e0;
+  --hover-bg: #f0f0f0;
+  --light: #f4f6fa;
+  --dark: #be20ea;
+  --success: #38a169;
+  --warning: #dd6b20;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
+  --accent: #6C4AB0;
+  --primary: #6C4AB0;
+  --secondary: #B388EB;
+}
+
+html.dark {
+  --bg-color: transparent;
+  --bg-gradient: radial-gradient(125% 125% at 50% 10%, #1c1b2f 20%, #2d224c 50%, #9045ec 100%);
+  --text-color: #060224;
+  --card-bg: #1e1e1e;
+  --danger: #ff6b6b;
+  --border: #2f2f2f;
+  --hover-bg: #2a2a2a;
+  --light: #fffafa;
+  --dark: #54255e;
+  --success: #4caf50;
+  --warning: #ff9800;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.2), 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+body, .app {
+  background-color: var(--bg-color);
+  background-image: var(--bg-gradient);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: var(--text-color);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+*, *::before, *::after {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+
+
+.text-accent { color: var(--accent); }
+.bg-accent { background-color: var(--accent); }
+.border-accent { border-color: var(--accent); }
+
+
+
+.section-container {
+  color: var(--text-color);
+}
+
+.feature-card-glass {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border);
+  padding: 1.5rem;
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  color: var(--text-color);
+}
+
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text-color);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.mobile-menu-backdrop {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 280px;
+    height: 100vh;
+    background-color: var(--card-bg);
+    flex-direction: column;
+    padding: 5rem 2rem;
+    transition: right 0.3s ease;
+    z-index: 1000;
+  }
+  .mobile-menu-btn {
+    display: block;
+    z-index: 1001;
+  }
+}
+
+input, textarea, select {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border);
+  color: var(--text-color);
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  width: 100%;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(156, 122, 255, 0.2);
+}
+
+.route-options,
+.route-details,
+.route-icon.safest,
+.route-meta,
+.route-card,
+.route-details-section,
+.safety-info,
+.safety-badge.high,
+.medium-high,
+.route-container {
+  color: var(--text-color);
+}
+
+.debug * {
+  outline: 1px dashed rgba(255, 0, 0, 0.1);
+}
+
+.reports-header p {
+  color: var(--text-color);
+}
+
+.reports-header h1{
+  color: white;
+}
+
+
+
+.search-filters label,
+.filter-group select,
+.search-bar input {
+  color: black;
+}
+
+.filter-group select,
+.search-bar input {
+  background-color: white;
+  border: 1px solid #ccc;
+}
+
+
+
+.report-type {
+  color: white !important;
+  background-color: #333;
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  text-transform: capitalize;
+}
+
+
+
+.route-details-section,
+.safety-info,
+.safety-info p,
+.safety-features li {
+  color: black;
+}
+
+.forum-header h1,
+.forum-header p {
+  color: white !important;
+}
+
+.tab-btn {
+  color: white !important;
+  background-color: transparent;
+  border: none;
+}
+.tab-btn:hover {
+  color: black !important;
+  background-color: transparent;
+}
+
+
+html.dark .resources-help-page h1,
+html.dark .resources-help-page h2,
+html.dark .resources-help-page .section-subtitle,
+html.dark .resources-help-page .section-header p {
+  color: white !important;
+}
+html.dark .guidelines-list li{
+    color: white !important;
+}
+
+html.dark .section-header h2,
+html.dark .resources-section h2,
+html.dark .guidelines-section h2,
+html.dark .guidelines-section .intro-text,
+
+html.dark .tab-btn {
+  color: white !important;
+  background-color: transparent;
+  border: none;
+}
+html.dark .tab-btn:hover {
+  color: rgb(189, 34, 220) !important;
+}
+
+
+/* ========== Light Mode: Community & Safety Text Fixes ========== */
+
+/* ========== Dark Mode: Community & Safety Page Text ========== */
+html.dark .community-page h1,
+html.dark .community-page h2,
+html.dark .community-page h3,
+html.dark .community-page p,
+html.dark .community-page .discussion-card,
+html.dark .community-page .discussion-card p,
+html.dark .community-page .post-meta,
+html.dark .community-page .comment,
+html.dark .community-page .comment p,
+html.dark .safety-page h1,
+html.dark .safety-page h2,
+html.dark .safety-page p,
+html.dark .safety-page li,
+html.dark .safety-info
+
+ {
+  color: white !important;
+}
+
+html.dark h1{
+  color: white !important;
+}
+
+html.dark .para{
+  color:white !important;
+}
+html.dark .reports-header h1,
+html.dark .safety-page h1 {
+  color: white !important;
+}
+
+html.dark .section-header h2 {
+  color: white !important;
+}
+
+/* Light mode: Default text colors */
+.community-page h1,
+.community-page h2,
+.community-page h3,
+.community-page p,
+.community-page .discussion-card,
+.community-page .discussion-card p,
+.community-page .post-meta,
+.community-page .comment,
+.community-page .comment p,
+.safety-page h1,
+.safety-page h2,
+.safety-page p,
+.safety-page li,
+.safety-info {
+  color: #000 !important; /* Black text in light mode */
+}
+
+/* Specific titles in header */
+.forum-header h1,
+.forum-header p,
+.forum-tabs .tab-btn {
+  color: #000 !important;
+}
+
+/* Section headers and topic titles */
+.section-header h2,
+.topic-card h3,
+.resource-card h3 {
+  color: #000 !important;
+}
+
+.para{
+  color:#000 !important;
+}
+.title{
+  color:white !important;
+}
+html.dark .title{
+  color:white !important;
+}
