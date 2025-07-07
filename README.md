@@ -238,28 +238,17 @@ python safe_route.py
 ## 🎥 Media & Showcase
 
 ### Panels & Screens
+### 🖼️ Project Screenshots
 
-| Admin                                        | User                                           |
-| -------------------------------------------- | ---------------------------------------------- |
-| ![Admin](public/screenshots/admin-login.png) | ![User](public/screenshots/user-dashboard.png) |
 
-### Data Insights
+| | | |
+|---|---|---|
+| ![1](https://github.com/Rabia303/final-year-project-muhafiz/blob/main/1.jpeg?raw=true) | ![2](https://github.com/Rabia303/final-year-project-muhafiz/blob/main/2.jpeg?raw=true) | ![3](https://github.com/Rabia303/final-year-project-muhafiz/blob/main/16.jpeg?raw=true) |
+| ![4](https://github.com/Rabia303/final-year-project-muhafiz/blob/main/17.jpeg?raw=true) | ![5](https://github.com/Rabia303/final-year-project-muhafiz/blob/main/18.jpeg?raw=true) | ![6](https://github.com/Rabia303/final-year-project-muhafiz/blob/main/6.jpeg?raw=true) |
+| ![7](https://github.com/Rabia303/final-year-project-muhafiz/blob/main/7.jpeg?raw=true) | ![8](https://github.com/Rabia303/final-year-project-muhafiz/blob/main/8.jpeg?raw=true) | ![13](https://github.com/Rabia303/final-year-project-muhafiz/blob/main/13.jpeg?raw=true) |
+| ![14](https://github.com/Rabia303/final-year-project-muhafiz/blob/main/14.jpeg?raw=true) | ![15](https://github.com/Rabia303/final-year-project-muhafiz/blob/main/15.jpeg?raw=true) | ![16](https://github.com/Rabia303/final-year-project-muhafiz/blob/main/3.jpeg?raw=true) |
+| ![17](https://github.com/Rabia303/final-year-project-muhafiz/blob/main/4.jpeg?raw=true) | ![18](https://github.com/Rabia303/final-year-project-muhafiz/blob/main/5.jpeg?raw=true) | |
 
-| Map                                      | Charts                                        |
-| ---------------------------------------- | --------------------------------------------- |
-| ![Zone](public/screenshots/zone-map.png) | ![Charts](public/screenshots/data-charts.png) |
-
-### Report & Slides
-
-| Report                                        | Presentation                                        |
-| --------------------------------------------- | --------------------------------------------------- |
-| ![PDF](public/screenshots/project-report.png) | ![Slide](public/screenshots/presentation-slide.png) |
-
-### Power BI
-
-| Dashboard                                  | Trends                                         |
-| ------------------------------------------ | ---------------------------------------------- |
-| ![BI](public/screenshots/powerbi-main.png) | ![Trend](public/screenshots/powerbi-trend.png) |
 
 ### Video
 
@@ -304,7 +293,7 @@ This project is licensed under the [MIT License](LICENSE).
 ## 📩 Contact
 
 * Email: [rabiaimtiaz@email.com](mailto:rabiaimtiaz@email.com)
-* LinkedIn: [linkedin.com/in/yourprofile](https://linkedin.com/in/yourprofile)
+* LinkedIn: [linkedin.com/in/rabia_imtiaz](https://www.linkedin.com/in/rabia-imtiaz/)
 
 ---
 
