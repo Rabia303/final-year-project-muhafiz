@@ -252,8 +252,7 @@ python safe_route.py
 
 ### Video
 
-* 🎥 [Watch Demo](https://youtu.be/your-link)
-* Or play: `/public/media/demo-video.mp4`
+🎥 [![Watch Demo](https://github.com/Rabia303/final-year-project-muhafiz/blob/main/1.jpeg?raw=true)](https://github.com/Rabia303/final-year-project-muhafiz/blob/main/ProjectVedio__.mp4)
 
 ---
 
