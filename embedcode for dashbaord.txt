@@ -1,0 +1,6 @@
+email link:
+https://app.powerbi.com/view?r=eyJrIjoiY2RjOGE4ZmQtNDdjOC00MDdiLWJlNmEtZTM0MGVhNzE4ZTMxIiwidCI6IjI0MWNlN2VlLTVjYmUtNDczNi1hYWM0LWZkOWZmM2NjMWRkMSIsImMiOjl9&pageName=f26d4986084c6856ed5f
+
+HTML to paste on a website
+
+<iframe title="crime_dashboard" width="600" height="373.5" src="https://app.powerbi.com/view?r=eyJrIjoiY2RjOGE4ZmQtNDdjOC00MDdiLWJlNmEtZTM0MGVhNzE4ZTMxIiwidCI6IjI0MWNlN2VlLTVjYmUtNDczNi1hYWM0LWZkOWZmM2NjMWRkMSIsImMiOjl9&pageName=f26d4986084c6856ed5f" frameborder="0" allowFullScreen="true"></iframe>
