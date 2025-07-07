@@ -238,8 +238,8 @@ python safe_route.py
 ## 🎥 Media & Showcase
 
 ### Panels & Screens
-### 🖼️ Project Screenshots
 
+### 🖼️ Project Screenshots
 
 | | | |
 |---|---|---|
@@ -249,10 +249,17 @@ python safe_route.py
 | ![14](https://github.com/Rabia303/final-year-project-muhafiz/blob/main/14.jpeg?raw=true) | ![15](https://github.com/Rabia303/final-year-project-muhafiz/blob/main/15.jpeg?raw=true) | ![16](https://github.com/Rabia303/final-year-project-muhafiz/blob/main/3.jpeg?raw=true) |
 | ![17](https://github.com/Rabia303/final-year-project-muhafiz/blob/main/4.jpeg?raw=true) | ![18](https://github.com/Rabia303/final-year-project-muhafiz/blob/main/5.jpeg?raw=true) | |
 
+### 🎥 Full Video
 
-### Video
+🎬 [**Watch Full Project Demo**](https://github.com/Rabia303/final-year-project-muhafiz/blob/main/ProjectVedio__.mp4)
 
-🎥 [Watch Full Project Demo](https://github.com/Rabia303/final-year-project-muhafiz/blob/main/ProjectVedio__.mp4)
+---
+
+### 🖼️ Project Demo (GIF Preview)
+
+![Demo](https://github.com/Rabia303/final-year-project-muhafiz/blob/main/demovedio.gif?raw=true)
+
+> 🔎 A quick 5 seconds visual walkthrough of the Muhafiz platform in action.
 
 ---
 
